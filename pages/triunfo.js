@@ -16,8 +16,8 @@ export default function Home({ informacion, fotos, barrios, videos }) {
 
           <div>
             {informacion?.map((info, index) => (
-              <div className="flex justify-center ">
-                <div className="prose lg:prose-xl" key={index}>
+              <div key={info.id} className="flex justify-center ">
+                <div className="prose lg:prose-xl">
                   <div className="my-3 leading-relaxed	normal-case align-middle whitespace-pre-wrap tracking-tight hover:tracking-wide italic antialiased hover:subpixel-antialiased text-gray-500  dark:text-gray-400 text-justify">
                     {info.descripcion_parroquia}
                   </div>
@@ -71,7 +71,7 @@ export default function Home({ informacion, fotos, barrios, videos }) {
           <div className="text-center my-3 leading-relaxed font-bold text-xl	normal-case align-middle whitespace-pre-wrap tracking-tight  italic antialiased hover:subpixel-antialiased text-gray-900  dark:text-gray-400">
             Mapa El Triunfo
           </div>
-          
+
           <div className=" flex justify-center py-2 ">
             <Image
               className=" ring-sky-800  ring-8 shadow w-full sm:w-1/2 md:w-1/2 lg:w-3/4 xl:w-full  ring-offset-4 rounded-full"
