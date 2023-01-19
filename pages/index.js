@@ -44,6 +44,7 @@ export default function Home() {
                   src={info.url}
                   height={850}
                   width={850}
+                  alt={info.direccion}
                 />
                 <span className="opacity-75 absolute text-center font-bold tracking-tight leading-none text-white text-5xl hover:text-yellow-200 ">
                   {info.nombre}
@@ -59,8 +60,8 @@ export default function Home() {
           Historia del Cantón La Mana
         </h1>
         {canton?.map((info, index) => (
-          <div className="flex justify-center ">
-            <div className="prose lg:prose-xl" key={info.id}>
+          <div key={info.id} className="flex justify-center ">
+            <div className="prose lg:prose-xl">
               <div className="my-3 leading-relaxed	normal-case align-middle whitespace-pre-wrap tracking-tight hover:tracking-wide italic antialiased hover:subpixel-antialiased text-gray-500  dark:text-gray-400 text-justify">
                 {info.historia}
               </div>
