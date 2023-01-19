@@ -1,13 +1,15 @@
-import { Html, Head, Main, NextScript } from 'next/document'
+import { Html, Head, Main, NextScript } from "next/document"
+import Footer from "../components/Footer"
 
 export default function Document() {
   return (
-    <Html lang="en">
+    <Html lang="es">
       <Head />
-      <body>
+      <body className="select-none">
         <Main />
         <NextScript />
       </body>
+      <Footer />
     </Html>
   )
 }
