@@ -2,11 +2,11 @@ import axios from "axios"
 import Link from "next/link"
 import { useRouter } from "next/router"
 
-import { Layout } from "../../../../../components/Layoutv2"
+import { Layoutv2 } from "../../../../../components/Layoutv2"
 export default function Historias({ historias }) {
   const router = useRouter()
   return (
-    <Layout>
+    <Layoutv2>
       <div className="grid place-items-center p-20">
         <div className="bg-white w-full h-screen ">
           <div className=" grid place-items-center">
@@ -42,7 +42,7 @@ export default function Historias({ historias }) {
           </div>
         </div>
       </div>
-    </Layout>
+    </Layoutv2>
   )
 }
 
