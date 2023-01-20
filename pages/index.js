@@ -2,7 +2,7 @@ import Image from "next/image"
 import { Carousel } from "flowbite-react"
 import Link from "next/link"
 import Layout from "../components/Layout"
-import { canton, data } from "./data/canton"
+import { canton, data } from "./../services/canton"
 
 export default function Home() {
   return (
