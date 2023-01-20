@@ -2,7 +2,7 @@ Es un proyecto realizado con el Framework NextJS.
 
 ## Getting Started
 
-Requiere instalar modulos de node, antes de levantar el servidor, asegurese de tener instalado [nodejs](https://nodejs.org/en/download/current/) en su ultima version
+Requiere instalar modulos de node, antes de levantar el servidor, asegurese de tener instalado [NODE.js](https://nodejs.org/en/download/current/) en su ultima version
 Luego ejecute el siguiente comando para instalar las dependencias necesarias.
 ```bash
 npm install
