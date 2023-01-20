@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@floating-ui/react": "^0.18.0",
     "@next/font": "13.1.2",
     "axios": "^1.2.3",
     "eslint": "8.32.0",
