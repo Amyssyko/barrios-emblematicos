@@ -30,6 +30,7 @@ export function FormGastronomia() {
       //console.log(router.query.id)
       getGastronomia(router.query.id)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const handleSubmit = async (e) => {

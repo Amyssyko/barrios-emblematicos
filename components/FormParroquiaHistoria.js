@@ -29,6 +29,7 @@ export function FormParroquiaHistoria() {
       //console.log(router.query.id)
       gethistoria_parroquia(router.query.id)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const handleSubmit = async (e) => {

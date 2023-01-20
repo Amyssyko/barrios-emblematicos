@@ -34,6 +34,7 @@ export function FormBarrio() {
       //console.log(router.query.id)
       getBarrio(router.query.id)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const handleSubmit = async (e) => {
