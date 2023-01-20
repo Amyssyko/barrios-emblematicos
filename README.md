@@ -2,7 +2,7 @@ Es un proyecto realizado con el Framework NextJS.
 
 ## Getting Started
 
-Requiere instalar modulos de node, antes de levantar el servidor, asegurese de tener instalado [NODE.js](https://nodejs.org/en/download/current/) en su ultima version
+Requiere instalar modulos de node, antes de levantar el servidor, asegurese de tener instalado [NODE.js](https://nodejs.org/en/download/current/) en su ultima versión.
 Luego ejecute el siguiente comando para instalar las dependencias necesarias.
 ```bash
 npm install
@@ -10,7 +10,7 @@ npm install
 yarn install
 ```
 
-Para iniciar en modo desarollo debe ejeutar el siguiente comando en la terminal en la ruta del proyecto.
+Para iniciar en modo desarollo debe ejecutar el siguiente comando en la terminal en la ruta del proyecto.
 
 ```bash
 npm run dev
