@@ -7,9 +7,9 @@ import { canton, data } from "./../services/canton"
 export default function Home() {
   return (
     <Layout>
-      <div className="bg-slate-100">
+      <div className="bg-slate-50">
         <div className="h-36 md:h-38 sm:h-30 xl:h-80 pl-10 md:pl-1 sm:pl-1 pr-10 md:w-full">
-          <div className="bg-slate-100 grid grid-cols-4 gap-2 place-items-center py-2 hover:py-2 w-full">
+          <div className="bg-slate-100 grid grid-cols-4 gap-2 place-items-center py-2 hover:py-2 px-80">
             <Link href="#historia">
               <div className="font-medium hover:text-lime-800 hover:border  rounded-md hover:bg-yellow-400 ">
                 Historia
@@ -61,8 +61,8 @@ export default function Home() {
         </h1>
         {canton?.map((info) => (
           <div key={info.id} className="flex justify-center ">
-            <div className="prose prose-2xl">
-              <div className="my-3 leading-relaxed	normal-case align-middle whitespace-pre-wrap tracking-tight hover:tracking-wide italic antialiased hover:subpixel-antialiased text-gray-500  dark:text-gray-400 text-justify">
+            <div className="prose-xl">
+              <div className=" px-24 lg:prose-xl my-3 leading-relaxed	normal-case align-middle whitespace-pre-wrap tracking-tight hover:tracking-wide italic antialiased hover:subpixel-antialiased text-gray-500  dark:text-gray-400 text-justify">
                 {info.historia}
               </div>
               <br />

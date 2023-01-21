@@ -9,7 +9,7 @@ export default function Layout({ children, title }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <Navbar />
-      <div className="mx-60">{children}</div>
+      <div className="mx-48">{children}</div>
     </>
   )
 }
