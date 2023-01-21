@@ -14,7 +14,7 @@ export default async function handlerAllParro(req, res) {
 const getFotoById = async (req, res) => {
   const { id } = req.query
   try {
-    const [result] = await pool.query("SELECT * FROM FOTO where cod=?", [id])
+    const [result] = await pool.query("select * from foto where cod=?", [id])
     return res.status(201).json(result)
   } catch (error) {
     return res.status(500).json({ message: error.message })

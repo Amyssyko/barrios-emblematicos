@@ -1,8 +1,6 @@
 import { pool } from "../../../../config/db"
 
 export default async function handler(req, res) {
-  /*res.json({ id: req.query.id, message: "Historia History" })*/
-
   switch (req.method) {
     case "GET":
       return await getGastronomia(req, res)
@@ -15,7 +13,7 @@ export default async function handler(req, res) {
 
 const getGastronomia = async (req, res) => {
   try {
-    const [result] = await pool.query("SELECT * FROM GASTRONOMIA")
+    const [result] = await pool.query("select * from gastronomia")
     return res.status(201).json(result)
   } catch (error) {
     return res.status(500).json({ message: error.message })
@@ -27,7 +25,7 @@ async function createGastronomia(req, res) {
     const { id_gastronomia, nombre_plato, descripcion_plato, id_parroquia } =
       req.body
     const [result] = await pool.query(
-      "INSERT INTO GASTRONOMIA (id_gastronomia, nombre_plato, descripcion_plato,id_parroquia ) VALUES (?,?,?,?)",
+      "insert into gastronomia (id_gastronomia, nombre_plato, descripcion_plato,id_parroquia ) values (?,?,?,?)",
       [id_gastronomia, nombre_plato, descripcion_plato, id_parroquia]
     )
     return res

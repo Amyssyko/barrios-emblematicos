@@ -13,7 +13,7 @@ async function getBarrioById(req, res) {
   try {
     const { id } = req.query
     const [result] = await pool.query(
-      "SELECT * FROM RECINTO WHERE id_parroquia=? ",
+      "select * from recinto where id_parroquia=? ",
       [id]
     )
     return res.status(201).json(result)

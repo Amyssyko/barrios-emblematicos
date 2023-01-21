@@ -1,8 +1,6 @@
 import { pool } from "../../../../config/db"
 
 export default async function handler(req, res) {
-  /*res.json({ id: req.query.id, message: "Historia History" })*/
-
   switch (req.method) {
     case "GET":
       return await getHistoria(req, res)
@@ -13,7 +11,7 @@ export default async function handler(req, res) {
 
 const getHistoria = async (req, res) => {
   try {
-    const [result] = await pool.query("SELECT * FROM HISTORIA_BARRIO")
+    const [result] = await pool.query("select * from historia_barrio")
     return res.status(201).json(result)
   } catch (error) {
     return res.status(500).json({ message: error.message })

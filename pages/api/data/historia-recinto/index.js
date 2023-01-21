@@ -11,7 +11,7 @@ export default async function handler(req, res) {
 
 const getHistoria = async (req, res) => {
   try {
-    const [result] = await pool.query("SELECT * FROM HISTORIA_RECINTO")
+    const [result] = await pool.query("select * from historia_recinto")
     return res.status(201).json(result)
   } catch (error) {
     return res.status(500).json({ message: error.message })

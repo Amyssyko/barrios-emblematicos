@@ -1,4 +1,5 @@
 import axios from "axios"
+import { Carousel } from "flowbite-react"
 import Image from "next/image"
 import Link from "next/link"
 import { useMemo } from "react"
@@ -20,29 +21,33 @@ export default function Home({ informacion, fotos, barrios, videos }) {
               Historia
             </h1>
             <div>
-              {informacion.map((info, index) => (
-                <div key={info.id} className="flex justify-center ">
-                  <div className="prose-xl">
-                    <div className="px-24 lg:prose-xl my-3 leading-relaxed	normal-case align-middle whitespace-pre-wrap tracking-tight hover:tracking-wide italic antialiased hover:subpixel-antialiased text-gray-500  dark:text-gray-400 text-justify">
-                      {info.descripcion_parroquia}
-                    </div>
-                    <br />
+              {informacion.map((info) => (
+                <div key={info.id} className="">
+                  <div className="mb-6 px-12  place-self-center font-normal text-gray-500 dark:text-gray-400 text-justify	 ">
+                    {info.descripcion_parroquia}
                   </div>
+                  <br />
                 </div>
               ))}
             </div>
-            <div>
-              {dfoto.map((foto, index) => (
-                <div className="flex justify-center mt-5" key={index}>
-                  <Image
-                    className="brightness-125 contrast-125"
-                    alt="Imagen de la parroquia"
-                    height={auto}
-                    width={auto}
-                    src={foto.url}
-                  />
-                </div>
-              ))}
+
+            <div className="h-56 sm:h-64 xl:h-80 2xl:h-96">
+              <div className="text-center leading-relaxed	normal-case align-middle text-xl whitespace-pre-wrap tracking-tight antialiased hover:subpixel-antialiased text-gray-900  dark:text-gray-900 font-bold">
+                Fotografias de La Maná
+              </div>
+              <Carousel slideInterval={5000}>
+                {fotos.map((foto) => (
+                  <div className="flex justify-center mt-5" key={foto.id}>
+                    <Image
+                      className="brightness-125 contrast-125"
+                      alt="Imagen de la parroquia"
+                      height={auto}
+                      width={auto}
+                      src={foto.url}
+                    />
+                  </div>
+                ))}
+              </Carousel>
             </div>
 
             <ul className="list-disc list-inside px-20 py-5 font-sans text-lg antialiased hover:subpixel-antialiased text-gray-500  dark:text-gray-400">
@@ -68,7 +73,7 @@ export default function Home({ informacion, fotos, barrios, videos }) {
                 <div className=" text-center pt-2 pb-2 ">
                   {barrio.nombre_barrio}:{" "}
                 </div>
-                <div className="leading-relaxed	normal-case align-middle whitespace-pre-wrap tracking-tight hover:tracking-wide italic antialiased hover:subpixel-antialiased text-gray-500  dark:text-gray-400 text-justify">
+                <div className="leading-relaxed	normal-case align-middle whitespace-pre-wrap tracking-tight  italic antialiased hover:subpixel-antialiased text-gray-500  dark:text-gray-400 text-justify">
                   {barrio.descripcion_barrio}
                 </div>
               </div>
@@ -77,35 +82,39 @@ export default function Home({ informacion, fotos, barrios, videos }) {
             <div className="text-center my-3 leading-relaxed font-bold text-xl	normal-case align-middle whitespace-pre-wrap tracking-tight  italic antialiased hover:subpixel-antialiased text-gray-900  dark:text-gray-400">
               Mapa La Mana
             </div>
-            <div className=" flex justify-center py-2 ">
-              <Image
-                className=" ring-sky-800  ring-8 shadow w-full sm:w-1/2 md:w-1/2 lg:w-3/4 xl:w-full  ring-offset-4 rounded-full"
-                alt="Mapa Parroquia La Mana"
-                width={1080}
-                height={1920}
-                allowfullscreen
-                src={
-                  "https://lh3.googleusercontent.com/u/1/drive-viewer/AFDK6gM-IrT-k9d7GX-jeKs-p2zmIF59HDKQSrkOqOreksv1Rw7DABeYGrpD5YeIysKGNhZo3q-YVkn8G_BBxjSfhRM_pP59dA"
-                }
-              />
+            <div className=" flex justify-center py-2">
+              <div className="w-3/4 md:w-3/4 sm:w-3/4 lg:w-3/4 lx:w-3/4">
+                <Image
+                  className=" ring-sky-800  ring-8 shadow w-full sm:w-1/2 md:w-1/2 lg:w-3/4 xl:w-full  ring-offset-4 rounded-full"
+                  alt="Mapa Parroquia La Maná"
+                  width={1080}
+                  height={1920}
+                  allowfullscreen
+                  src={
+                    "https://lh3.googleusercontent.com/u/1/drive-viewer/AFDK6gM-IrT-k9d7GX-jeKs-p2zmIF59HDKQSrkOqOreksv1Rw7DABeYGrpD5YeIysKGNhZo3q-YVkn8G_BBxjSfhRM_pP59dA"
+                  }
+                />
+              </div>
             </div>
 
-            {videos?.map((video, id) => (
-              <div key={id} className="py-5 w-3/4 grid ">
-                <div className="text-center my-3 leading-relaxed font-bold text-xl	normal-case align-middle whitespace-pre-wrap tracking-tight  italic antialiased hover:subpixel-antialiased text-gray-900  dark:text-gray-400">
-                  {video.descripcion_video}
+            <div className=" flex justify-center py-2 ">
+              {videos?.map((video, id) => (
+                <div key={id} className="py-5 w-3/4 grid ">
+                  <div className="text-center my-3 leading-relaxed font-bold text-xl	normal-case align-middle whitespace-pre-wrap tracking-tight  italic antialiased hover:subpixel-antialiased text-gray-900  dark:text-gray-400">
+                    {video.descripcion_video}
+                  </div>
+                  <div className="aspect-w-16 aspect-h-9  ">
+                    <iframe
+                      src={video.url}
+                      loading
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowfullscreen
+                    ></iframe>
+                  </div>
                 </div>
-                <div className="aspect-w-16 aspect-h-9  ">
-                  <iframe
-                    src={video.url}
-                    loading
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen
-                  ></iframe>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </Layout>

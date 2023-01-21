@@ -1,8 +1,6 @@
 import { pool } from "../../../../../../config/db"
 
-export default async function handlerParroById(req, res) {
-  /*res.json({ ById: req.query.ById, message: "Parroquia" })*/
-
+export default async function handler(req, res) {
   switch (req.method) {
     case "GET":
       return await getHistoriaById(req, res)
@@ -19,7 +17,7 @@ async function getHistoriaById(req, res) {
   try {
     const { id } = req.query
     const [result] = await pool.query(
-      "SELECT * FROM HISTORIA_RECINTO WHERE id_historia_recinto=? ",
+      "select * from historia_recinto where id_historia_recinto=? ",
       [id]
     )
     return res.status(201).json(result[0])
@@ -31,9 +29,10 @@ async function getHistoriaById(req, res) {
 const deleteHistoriaById = async (req, res) => {
   try {
     const { id } = req.query
-    await pool.query("DELETE FROM HISTORIA_RECINTO WHERE id_historia_recinto=?", [
-      id,
-    ])
+    await pool.query(
+      "delete from historia_recinto where id_historia_recinto=?",
+      [id]
+    )
     return res.status(204).json()
   } catch (error) {
     return res.status(500).json({ message: error.message })
@@ -44,7 +43,7 @@ const updateHistoriaById = async (req, res) => {
   const { id_historia_recinto } = req.body
   try {
     const result = await pool.query(
-      "UPDATE HISTORIA_RECINTO SET ? WHERE id_historia_recinto=?",
+      "update historia_recinto set ? where id_historia_recinto=?",
       [req.body, id_historia_recinto]
     )
     return res.status(204).json()

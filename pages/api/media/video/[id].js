@@ -12,7 +12,7 @@ export default async function handler(req, res) {
 const getVideoById = async (req, res) => {
   const { id } = req.query
   try {
-    const [result] = await pool.query("SELECT * FROM VIDEO where cod=?", [id])
+    const [result] = await pool.query("select * from video where cod=?", [id])
     return res.status(201).json(result)
   } catch (error) {
     return res.status(500).json({ message: error.message })

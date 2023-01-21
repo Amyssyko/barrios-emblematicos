@@ -6,12 +6,14 @@ html,
 body {
   padding: 0px;
   margin: 0px;
-  background: rgb(253, 251, 239);
+  background: rgb(248, 247, 244);
  
 }
 
 * {
   box-sizing: border-box;
 }
+
+
 
 

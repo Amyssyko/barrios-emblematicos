@@ -1,8 +1,6 @@
 import { pool } from "../../../config/db"
 
-export default async function handlerAllParro(req, res) {
-  /*res.json({ id: req.query.id, message: "Parroquia History" })*/
-
+export default async function handler(req, res) {
   switch (req.method) {
     case "GET":
       return await getParroquia(req, res)
@@ -15,7 +13,7 @@ export default async function handlerAllParro(req, res) {
 
 const getParroquia = async (req, res) => {
   try {
-    const [result] = await pool.query("SELECT * FROM PARROQUIA")
+    const [result] = await pool.query("select * from parroquia")
     return res.status(201).json(result)
   } catch (error) {
     return res.status(500).json({ message: error.message })
@@ -26,7 +24,7 @@ async function createParroquia(req, res) {
   try {
     const { id_parroquia, nombre_parroquia, unidad_educativa } = req.body
     const [result] = await pool.query(
-      "INSERT INTO PARROQUIA (id_parroquia, nombre_parroquia, unidad_educativa ) VALUES (?,?,?)",
+      "insert into parroquia (id_parroquia, nombre_parroquia, unidad_educativa ) values (?,?,?)",
       [id_parroquia, nombre_parroquia, unidad_educativa]
     )
     return res

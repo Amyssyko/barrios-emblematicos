@@ -1,8 +1,6 @@
 import { pool } from "../../../../../config/db"
 
 export default async function handlerParroById(req, res) {
-  /*res.json({ ById: req.query.ById, message: "Parroquia" })*/
-
   switch (req.method) {
     case "GET":
       return await getActividadById(req, res)
@@ -19,7 +17,7 @@ async function getActividadById(req, res) {
   try {
     const { id } = req.query
     const [result] = await pool.query(
-      "SELECT * FROM ACTIVIDAD WHERE id_actividad=? ",
+      "select * from actividad where id_actividad=? ",
       [id]
     )
     return res.status(201).json(result[0])
@@ -31,9 +29,7 @@ async function getActividadById(req, res) {
 const deleteActividadById = async (req, res) => {
   try {
     const { id } = req.query
-    await pool.query("DELETE FROM ACTIVIDAD WHERE id_actividad=?", [
-      id,
-    ])
+    await pool.query("delete from actividad where id_actividad=?", [id])
     return res.status(204).json()
   } catch (error) {
     return res.status(500).json({ message: error.message })
@@ -44,7 +40,7 @@ const updateActividadById = async (req, res) => {
   const { id_actividad } = req.body
   try {
     const result = await pool.query(
-      "UPDATE ACTIVIDAD SET ? WHERE id_actividad=?",
+      "update actividad set ? where id_actividad=?",
       [req.body, id_actividad]
     )
     return res.status(204).json()

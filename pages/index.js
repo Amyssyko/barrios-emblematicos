@@ -62,7 +62,7 @@ export default function Home() {
         {canton?.map((info) => (
           <div key={info.id} className="flex justify-center ">
             <div className="prose-xl">
-              <div className=" px-24 lg:prose-xl my-3 leading-relaxed	normal-case align-middle whitespace-pre-wrap tracking-tight hover:tracking-wide italic antialiased hover:subpixel-antialiased text-gray-500  dark:text-gray-400 text-justify">
+              <div className=" px-24 lg:prose-xl my-3 leading-relaxed	normal-case align-middle whitespace-pre-wrap tracking-tight  italic antialiased hover:subpixel-antialiased text-gray-500  dark:text-gray-400 text-justify">
                 {info.historia}
               </div>
               <br />

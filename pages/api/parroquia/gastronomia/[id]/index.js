@@ -1,8 +1,6 @@
 import { pool } from "../../../../../config/db"
 
-export default async function handlerParroById(req, res) {
-  /*res.json({ ById: req.query.ById, message: "Parroquia" })*/
-
+export default async function handler(req, res) {
   switch (req.method) {
     case "GET":
       return await getGastronomiaById(req, res)
@@ -19,7 +17,7 @@ async function getGastronomiaById(req, res) {
   try {
     const { id } = req.query
     const [result] = await pool.query(
-      "SELECT * FROM Gastronomia WHERE id_gastronomia=? ",
+      "select * from gastronomia where id_gastronomia=? ",
       [id]
     )
     return res.status(201).json(result[0])
@@ -31,9 +29,7 @@ async function getGastronomiaById(req, res) {
 const deleteGastronomiaById = async (req, res) => {
   try {
     const { id } = req.query
-    await pool.query("DELETE FROM Gastronomia WHERE id_gastronomia=?", [
-      id,
-    ])
+    await pool.query("delete from gastronomia where id_gastronomia=?", [id])
     return res.status(204).json()
   } catch (error) {
     return res.status(500).json({ message: error.message })
@@ -44,7 +40,7 @@ const updateGastronomiaById = async (req, res) => {
   const { id_gastronomia } = req.body
   try {
     const result = await pool.query(
-      "UPDATE Gastronomia SET ? WHERE id_gastronomia=?",
+      "update gastronomia set ? where id_gastronomia=?",
       [req.body, id_gastronomia]
     )
     return res.status(204).json()

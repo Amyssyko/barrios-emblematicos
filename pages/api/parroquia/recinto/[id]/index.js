@@ -1,8 +1,6 @@
 import { pool } from "../../../../../config/db"
 
-export default async function handlerParroId(req, res) {
-  /*res.json({ id: req.query.id, message: "Recinto" })*/
-
+export default async function handler(req, res) {
   switch (req.method) {
     case "GET":
       return await getRecintoId(req, res)
@@ -22,7 +20,7 @@ async function getRecintoId(req, res) {
     const { id } = req.query
     console.log(req.query)
     const [result] = await pool.query(
-      "SELECT * FROM RECINTO WHERE id_recinto=? ",
+      "select * from recinto where id_recinto=? ",
       [id]
     )
     return res.status(201).json(result[0])
@@ -34,7 +32,7 @@ async function getRecintoId(req, res) {
 const deleteRecintoId = async (req, res) => {
   try {
     const { id } = req.query
-    await pool.query("DELETE FROM RECINTO WHERE id_recinto=?", [id])
+    await pool.query("delete from recinto where id_recinto=?", [id])
     return res.status(204).json()
   } catch (error) {
     return res.status(500).json({ message: error.message })
@@ -44,7 +42,7 @@ const deleteRecintoId = async (req, res) => {
 const updateRecintoId = async (req, res) => {
   const { id_recinto } = req.body
   try {
-    await pool.query("UPDATE RECINTO SET ? WHERE id_recinto=?", [
+    await pool.query("update recinto set ? where id_recinto=?", [
       req.body,
       id_recinto,
     ])

@@ -1,8 +1,6 @@
 import { pool } from "../../../../config/db"
 
-export default async function handlerAllParro(req, res) {
-  /*res.json({ id: req.query.id, message: "Parroquia History" })*/
-
+export default async function handler(req, res) {
   switch (req.method) {
     case "GET":
       return await getFoto(req, res)
@@ -13,7 +11,7 @@ export default async function handlerAllParro(req, res) {
 
 const getFoto = async (req, res) => {
   try {
-    const [result] = await pool.query("SELECT * FROM FOTO")
+    const [result] = await pool.query("select * from foto")
     return res.status(201).json(result)
   } catch (error) {
     return res.status(500).json({ message: error.message })

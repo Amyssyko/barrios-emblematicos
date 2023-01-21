@@ -1,8 +1,6 @@
 import { pool } from "../../../../../config/db"
 
 export default async function handlerParroById(req, res) {
-  /*res.json({ ById: req.query.ById, message: "Parroquia" })*/
-
   switch (req.method) {
     case "GET":
       return await getGastronomiaById(req, res)
@@ -15,7 +13,7 @@ async function getGastronomiaById(req, res) {
   try {
     const { id } = req.query
     const [result] = await pool.query(
-      "SELECT * FROM Gastronomia WHERE id_parroquia=? ",
+      "select * from gastronomia where id_parroquia=? ",
       [id]
     )
     return res.status(201).json(result)
