@@ -16,9 +16,9 @@ export default function Home({ informacion, fotos, recintos, videos }) {
 
           <div>
             {informacion?.map((info, index) => (
-              <div key={info.id} className="flex justify-center ">
+              <div key={info.id} className="flex justify-start ">
                 <div className="prose-xl">
-                  <div className="px-24 lg:prose-xl my-3 leading-relaxed	normal-case align-middle whitespace-pre-wrap tracking-tight  italic antialiased hover:subpixel-antialiased text-gray-500  dark:text-gray-400 text-justify">
+                  <div className=" px-3 md:px-5 sm:px-3 lg:prose-xl my-3 leading-relaxed	normal-case align-middle whitespace-pre-wrap tracking-tight  italic antialiased hover:subpixel-antialiased text-gray-500  dark:text-gray-400 text-justify">
                     {info.descripcion_parroquia}
                   </div>
                   <br />
@@ -39,12 +39,12 @@ export default function Home({ informacion, fotos, recintos, videos }) {
             ))}
           </div>
 
-          <ul className="list-disc list-inside px-20 py-5 font-sans text-lg antialiased hover:subpixel-antialiased text-gray-500  dark:text-gray-400">
+          <ul className="list-disc list-inside px-2 md:px-12 lg:px-24 py-5 font-sans text-lg antialiased hover:subpixel-antialiased text-gray-500  dark:text-gray-400">
             <div className="text-center my-3 leading-relaxed font-bold text-xl	normal-case align-middle whitespace-pre-wrap tracking-tight  italic antialiased hover:subpixel-antialiased text-gray-900  dark:text-gray-400">
               Límites de la Parroquia Pucayacu
             </div>
 
-            <div className="pl-28">
+            <div className="px-3">
               <li>Norte: Cantón Sigchos.</li>
               <li>Sur: Parroquia Guasaganda.</li>
               <li>Este: Cantón Sigchos.</li>
@@ -56,49 +56,51 @@ export default function Home({ informacion, fotos, recintos, videos }) {
             Recintos
           </div>
           {recintos?.map((recinto, id) => (
-            <div
+            <ul
               key={id}
-              className=" first-letter:prose lg:prose-xl list-disc list-inside px-20 py-1 my-3 leading-relaxed	normal-case align-middle whitespace-pre-wrap tracking-tight  italic antialiased hover:subpixel-antialiased text-gray-500  dark:text-gray-400 text-justify"
+              className="  first-letter:prose lg:prose-xl list-disc list-inside px-3 py-1 my-3 leading-relaxed	normal-case align-middle whitespace-pre-wrap tracking-tight  italic antialiased hover:subpixel-antialiased text-gray-500  dark:text-gray-400 text-justify"
             >
-              <div className="text-center pb-0  pt-0">
-                {recinto.nombre_recinto}
-              </div>
+              <li className="text-center ">{recinto.nombre_recinto}</li>
               <div>{recinto.descripcion_recinto}</div>
-            </div>
+            </ul>
           ))}
 
           <div className="text-center my-3 leading-relaxed font-bold text-xl	normal-case align-middle whitespace-pre-wrap tracking-tight  italic antialiased hover:subpixel-antialiased text-gray-900  dark:text-gray-400">
             Mapa Pucayacu
           </div>
-          <div className=" flex justify-center py-2 ">
-            <Image
-              className=" ring-sky-800 ring-8 shadow w-full sm:w-1/2 md:w-1/2 lg:w-3/4 xl:w-full  ring-offset-4 rounded-full"
-              alt="Mapa Parroquia Pucayacu"
-              width={1080}
-              height={1920}
-              allowfullscreen
-              src={
-                "https://lh3.googleusercontent.com/u/1/drive-viewer/AFDK6gMfI9I2_Rg4Y9Wf8eL_869LlHisNwCnXqy2XlPVXX0gydvL7gObG9BFhAbs7TK8rUNoMxYSYjJOW8UPh1tzthq3NyiiNA"
-              }
-            />
+          <div className=" flex justify-center sm:justify-center py-2">
+            <div className="w-3/4 sm:w-1/2 flex sm:justify-center">
+              <Image
+                className=" ring-sky-800  ring-8 shadow w-full sm:w-1/2 md:w-1/2 lg:w-3/4 xl:w-full  ring-offset-4 rounded-full"
+                alt="Mapa Parroquia Pucayacu"
+                width={1080}
+                height={1920}
+                allowfullscreen
+                src={
+                  "https://lh3.googleusercontent.com/u/1/drive-viewer/AFDK6gMfI9I2_Rg4Y9Wf8eL_869LlHisNwCnXqy2XlPVXX0gydvL7gObG9BFhAbs7TK8rUNoMxYSYjJOW8UPh1tzthq3NyiiNA"
+                }
+              />
+            </div>
           </div>
 
-          {videos?.map((video, id) => (
-            <div key={id} className="py-5">
-              <div className="text-center my-3 leading-relaxed font-bold text-xl	normal-case align-middle whitespace-pre-wrap tracking-tight  italic antialiased hover:subpixel-antialiased text-gray-900  dark:text-gray-400">
-                {video.descripcion_video}
+          <div className=" flex justify-center py-2 ">
+            {videos?.map((video, id) => (
+              <div key={id} className="py-5 w-3/4 grid ">
+                <div className="text-center my-3 leading-relaxed font-bold text-xl	normal-case align-middle whitespace-pre-wrap tracking-tight  italic antialiased hover:subpixel-antialiased text-gray-900  dark:text-gray-400">
+                  {video.descripcion_video}
+                </div>
+                <div className="aspect-w-16 aspect-h-9  ">
+                  <iframe
+                    src={video.url}
+                    loading
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                  ></iframe>
+                </div>
               </div>
-              <div className="aspect-w-16 aspect-h-9  ">
-                <iframe
-                  src={video.url}
-                  loading
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen
-                ></iframe>
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </Layout>
     </div>

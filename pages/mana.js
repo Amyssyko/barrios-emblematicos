@@ -1,8 +1,6 @@
 import axios from "axios"
-import { Carousel } from "flowbite-react"
 import Image from "next/image"
-import Link from "next/link"
-import { useMemo } from "react"
+import { Fotos } from "../components/Fotos"
 import Layout from "../components/Layout"
 
 //import styles from "../styles/Home.module.css"
@@ -23,8 +21,8 @@ export default function Home({ informacion, fotos, barrios, videos }) {
             <div>
               {informacion.map((info) => (
                 <div key={info.id} className="flex justify-center ">
-                  <div className="md:prose-xl sm:prose-sm">
-                    <div className="mb-6 px-12  lg:prose-xl md:prose-lx my-3 leading-relaxed	normal-case align-middle whitespace-pre-wrap tracking-tight  italic antialiased hover:subpixel-antialiased text-gray-500  dark:text-gray-400 text-justify">
+                  <div className="prose-xl">
+                    <div className=" px-3 md:px-5 sm:px-3 lg:prose-xl my-3 leading-relaxed	normal-case align-middle whitespace-pre-wrap tracking-tight  italic antialiased hover:subpixel-antialiased text-gray-500  dark:text-gray-400 text-justify">
                       {info.descripcion_parroquia}
                     </div>
                     <br />
@@ -33,30 +31,13 @@ export default function Home({ informacion, fotos, barrios, videos }) {
               ))}
             </div>
 
-            <div className="h-56 sm:h-64 xl:h-80 2xl:h-96">
-              <div className="text-center leading-relaxed	normal-case align-middle text-xl whitespace-pre-wrap tracking-tight antialiased hover:subpixel-antialiased text-gray-900  dark:text-gray-900 font-bold">
-                Fotografias de La Maná
-              </div>
-              <Carousel slideInterval={5000}>
-                {fotos.map((foto) => (
-                  <div className="flex justify-center mt-5" key={foto.id}>
-                    <Image
-                      className="brightness-125 contrast-125"
-                      alt="Imagen de la parroquia"
-                      height={auto}
-                      width={auto}
-                      src={foto.url}
-                    />
-                  </div>
-                ))}
-              </Carousel>
-            </div>
+            {Fotos({ fotos }, "El Triunfo")}
 
-            <ul className="list-disc list-inside px-20 py-5 font-sans text-lg antialiased hover:subpixel-antialiased text-gray-500  dark:text-gray-400">
+            <ul className="list-disc list-inside px-2 md:px-12 lg:px-24 py-5 font-sans text-lg antialiased hover:subpixel-antialiased text-gray-500  dark:text-gray-400">
               <div className="text-center my-3 leading-relaxed font-bold text-xl	normal-case align-middle whitespace-pre-wrap tracking-tight  italic antialiased hover:subpixel-antialiased text-gray-900  dark:text-gray-400">
                 Límites de la parroquia La Mana
               </div>
-              <div className="pl-28">
+              <div className="px-3">
                 <li>Norte: Parroquia Guasaganda y Cantón Valencia.</li>
                 <li>Sur: Cantón Quinsaloma y Pangua</li>
                 <li>Este: Cantón Pujilí.</li>
@@ -70,9 +51,9 @@ export default function Home({ informacion, fotos, barrios, videos }) {
             {barrios.map((barrio, id) => (
               <div
                 key={id}
-                className=" first-letter:prose lg:prose-xl list-disc list-inside px-20 py-5 my-3 leading-relaxed	normal-case align-middle whitespace-pre-wrap tracking-tight  italic antialiased hover:subpixel-antialiased text-gray-500  dark:text-gray-400 text-justify"
+                className=" first-letter:prose lg:prose-xl list-disc list-inside px-3 py-5 leading-relaxed	normal-case align-middle whitespace-pre-wrap tracking-tight  italic antialiased hover:subpixel-antialiased text-gray-500  dark:text-gray-400 text-justify"
               >
-                <div className=" text-center pt-2 pb-2 ">
+                <div className=" text-center  pb-2 ">
                   {barrio.nombre_barrio}:{" "}
                 </div>
                 <div className="leading-relaxed	normal-case align-middle whitespace-pre-wrap tracking-tight  italic antialiased hover:subpixel-antialiased text-gray-500  dark:text-gray-400 text-justify">
@@ -84,8 +65,8 @@ export default function Home({ informacion, fotos, barrios, videos }) {
             <div className="text-center my-3 leading-relaxed font-bold text-xl	normal-case align-middle whitespace-pre-wrap tracking-tight  italic antialiased hover:subpixel-antialiased text-gray-900  dark:text-gray-400">
               Mapa La Mana
             </div>
-            <div className=" flex justify-center py-2">
-              <div className="w-3/4 md:w-3/4 sm:w-3/4 lg:w-3/4 lx:w-3/4">
+            <div className=" flex justify-center sm:justify-center py-2">
+              <div className="w-3/4 sm:w-1/2 flex sm:justify-center">
                 <Image
                   className=" ring-sky-800  ring-8 shadow w-full sm:w-1/2 md:w-1/2 lg:w-3/4 xl:w-full  ring-offset-4 rounded-full"
                   alt="Mapa Parroquia La Maná"

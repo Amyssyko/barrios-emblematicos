@@ -9,36 +9,51 @@ export default function Home() {
     <Layout>
       <div className="bg-slate-50">
         <div className="h-36 md:h-38 sm:h-30 xl:h-80 pl-10 md:pl-1 sm:pl-1 pr-10 md:w-full">
-          <div className="bg-slate-100 grid grid-cols-4 gap-2 place-items-center py-2 hover:py-2 px-80">
-            {menu.map((m) => (
-              <Link key={m.id} href={`#$m.nombre`}>
-                <div className="font-medium hover:text-lime-800 hover:border  rounded-md hover:bg-yellow-400 ">
-                  {m.nombre}
-                </div>
-              </Link>
-            ))}
+          <div className="bg-slate-100 flex justify-between py-2 hover:py-2 px-2 text-sm lg:px-24">
+            <Link href="#historia">
+              <div className="font-medium hover:text-yellow-700 hover:border  rounded-md  ">
+                Historia
+              </div>
+            </Link>
+            <Link href="#limite">
+              <div className="font-medium hover:text-yellow-700 hover:border  rounded-md ">
+                Limites
+              </div>
+            </Link>
+            <Link href="#division">
+              <div className="font-medium hover:text-yellow-700 hover:border  rounded-md ">
+                División política
+              </div>
+            </Link>
+            <Link href="#produccion">
+              <div className="font-medium hover:text-yellow-700 hover:border  rounded-md ">
+                Producción
+              </div>
+            </Link>
           </div>
 
-          <Carousel slideInterval={2000}>
-            {data.map((info) => (
-              <Link
-                className=" snap-x grid place-items-center"
-                key={info.id}
-                href={info.direccion}
-              >
-                <Image
-                  className="relative w-3/2 h-auto opacity-88"
-                  src={info.url}
-                  height={850}
-                  width={850}
-                  alt={info.direccion}
-                />
-                <span className="opacity-75 absolute text-center font-bold tracking-tight leading-none text-white text-5xl hover:text-yellow-200 ">
-                  {info.nombre}
-                </span>
-              </Link>
-            ))}
-          </Carousel>
+          <div className="h-56 sm:h-64 xl:h-80 2xl:h-96 mx-2 py-3 ">
+            <Carousel slideInterval={2000}>
+              {data.map((info) => (
+                <Link
+                  className=" snap-x grid place-items-center"
+                  key={info.id}
+                  href={info.direccion}
+                >
+                  <Image
+                    className="flex justify-center mt-5 brightness-125 contrast-125 "
+                    src={info.url}
+                    height={1920}
+                    width={1080}
+                    alt={info.direccion}
+                  />
+                  <span className="opacity-75 absolute text-center font-bold tracking-tight leading-none text-white text-5xl hover:text-yellow-200 ">
+                    {info.nombre}
+                  </span>
+                </Link>
+              ))}
+            </Carousel>
+          </div>
         </div>
         <h1
           id="historia"
@@ -49,7 +64,7 @@ export default function Home() {
         {canton?.map((info) => (
           <div key={info.id} className="flex justify-center ">
             <div className="prose-xl">
-              <div className=" px-24 lg:prose-xl my-3 leading-relaxed	normal-case align-middle whitespace-pre-wrap tracking-tight  italic antialiased hover:subpixel-antialiased text-gray-500  dark:text-gray-400 text-justify">
+              <div className=" px-3 md:px-5 sm:px-3 lg:prose-xl my-3 leading-relaxed	normal-case align-middle whitespace-pre-wrap tracking-tight  italic antialiased hover:subpixel-antialiased text-gray-500  dark:text-gray-400 text-justify">
                 {info.historia}
               </div>
               <br />
@@ -64,7 +79,7 @@ export default function Home() {
           >
             Límites del cantón La Mana
           </div>
-          <div className="pl-20">
+          <div className="px-1">
             <li>Norte: Con la parroquia Alluriquín, cantón Santo Domingo.</li>
             <li>
               Sur: El río Calope es el accidente geográfico que la separa de la
@@ -85,7 +100,7 @@ export default function Home() {
           >
             División política
           </div>
-          <div className="pl-20">
+          <div className="px-2">
             <li>
               3 urbanas (
               <Link href="/mana" target="_blank" legacyBehavior>
@@ -128,9 +143,9 @@ export default function Home() {
           >
             Producción
           </div>
-          <div className="pl-28 text-justify">
+          <div className="px-2 text-justify">
             <li>Agricultura y ganadería</li>
-            <div className="pl-10 py-2">
+            <div className="px-2 py-2">
               La Maná es un lugar caracterizado por su actividad agrícola y
               pecuaria, lo que le da sustento a su creciente población y atrae a
               inmigrantes. Esto ha llevado al desarrollo de un fuerte sector
@@ -141,7 +156,7 @@ export default function Home() {
               Guayas y Los Ríos.
             </div>
             <li>Minería</li>
-            <div className="pl-10 py-2">
+            <div className="px-2 py-2">
               La minería, especialmente del oro, fue importante en la
               microrregión y le dio nombre y prestigio, pero actualmente es de
               menor importancia y solo unas pocas personas se dedican a ella de
@@ -150,7 +165,7 @@ export default function Home() {
               ha disminuido debido a la falta de tecnología adecuada para
               competir en el mercado.
             </div>
-            <div className="pl-10 py-2">
+            <div className="px-2 py-2">
               En la parroquia Guasaganda hay minas de mármol no explotadas, y en
               el sector de Estero Hondo hay minas de oro que son explotadas de
               manera artesanal con graves efectos sobre el medio ambiente. La
