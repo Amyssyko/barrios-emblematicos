@@ -49,3 +49,10 @@ export const data = [
     url: "https://lh3.googleusercontent.com/u/1/drive-viewer/AFDK6gOGL7EWV-SZC-GTqsxxgmxYd4nNmHS4Q_OIslMMMKp__OQ3dLgeCjrLlWpd9Kkb9xkrqELFaMeDEOScI0YxmSRD4N2zUw",
   },
 ]
+
+export const menu = [
+  { id: 1, nombre: "Historia" },
+  { id: 1, nombre: "Límites" },
+  { id: 1, nombre: "División Política" },
+  { id: 1, nombre: "Producción" },
+]

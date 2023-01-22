@@ -17,8 +17,8 @@ export default function Home({ informacion, fotos, barrios, videos }) {
           <div>
             {informacion?.map((info, index) => (
               <div key={info.id} className="flex justify-center ">
-                <div className="prose-xl">
-                  <div className="px-24 lg:prose-xl my-3 leading-relaxed	normal-case align-middle whitespace-pre-wrap tracking-tight  italic antialiased hover:subpixel-antialiased text-gray-500  dark:text-gray-400 text-justify">
+                <div className="md:prose-xl sm:prose-sm">
+                  <div className="mb-6 px-12  lg:prose-xl md:prose-lx my-3 leading-relaxed	normal-case align-middle whitespace-pre-wrap tracking-tight  italic antialiased hover:subpixel-antialiased text-gray-500  dark:text-gray-400 text-justify">
                     {info.descripcion_parroquia}
                   </div>
                   <br />

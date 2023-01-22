@@ -2,7 +2,7 @@ import Image from "next/image"
 import { Carousel } from "flowbite-react"
 import Link from "next/link"
 import Layout from "../components/Layout"
-import { canton, data } from "./../services/canton"
+import { canton, data, menu } from "./../services/canton"
 
 export default function Home() {
   return (
@@ -10,26 +10,13 @@ export default function Home() {
       <div className="bg-slate-50">
         <div className="h-36 md:h-38 sm:h-30 xl:h-80 pl-10 md:pl-1 sm:pl-1 pr-10 md:w-full">
           <div className="bg-slate-100 grid grid-cols-4 gap-2 place-items-center py-2 hover:py-2 px-80">
-            <Link href="#historia">
-              <div className="font-medium hover:text-lime-800 hover:border  rounded-md hover:bg-yellow-400 ">
-                Historia
-              </div>
-            </Link>
-            <Link href="#limite">
-              <div className="font-medium hover:text-lime-800 hover:border  rounded-md hover:bg-yellow-400 ">
-                Límites
-              </div>
-            </Link>
-            <Link href="#division">
-              <div className="font-medium hover:text-lime-800 hover:border  rounded-md hover:bg-yellow-400 ">
-                División Política
-              </div>
-            </Link>
-            <Link href="#produccion">
-              <div className="font-medium hover:text-lime-800 hover:border  rounded-md hover:bg-yellow-400 ">
-                Producción
-              </div>
-            </Link>
+            {menu.map((m) => (
+              <Link key={m.id} href={`#$m.nombre`}>
+                <div className="font-medium hover:text-lime-800 hover:border  rounded-md hover:bg-yellow-400 ">
+                  {m.nombre}
+                </div>
+              </Link>
+            ))}
           </div>
 
           <Carousel slideInterval={2000}>
