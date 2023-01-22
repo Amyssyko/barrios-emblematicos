@@ -5,11 +5,8 @@ import Layout from "../components/Layout"
 
 //import styles from "../styles/Home.module.css"
 
-export default function Home({ informacion, fotos, barrios, videos }) {
+export default function Mana({ informacion, fotos, barrios, videos }) {
   const auto = 500
-  const dinfo = informacion
-  const dfoto = fotos
-
   return (
     <div>
       <Layout title="La Mana">
@@ -48,9 +45,9 @@ export default function Home({ informacion, fotos, barrios, videos }) {
             <div className="text-center my-3 leading-relaxed font-bold text-xl	normal-case align-middle whitespace-pre-wrap tracking-tight  italic antialiased hover:subpixel-antialiased text-gray-900  dark:text-gray-400">
               Barrios
             </div>
-            {barrios.map((barrio, id) => (
+            {barrios.map((barrio) => (
               <div
-                key={id}
+                key={barrio.id}
                 className=" first-letter:prose lg:prose-xl list-disc list-inside px-3 py-5 leading-relaxed	normal-case align-middle whitespace-pre-wrap tracking-tight  italic antialiased hover:subpixel-antialiased text-gray-500  dark:text-gray-400 text-justify"
               >
                 <div className=" text-center  pb-2 ">
@@ -72,7 +69,7 @@ export default function Home({ informacion, fotos, barrios, videos }) {
                   alt="Mapa Parroquia La Maná"
                   width={1080}
                   height={1920}
-                  allowfullscreen
+                  allowFullScreen
                   src={
                     "https://lh3.googleusercontent.com/u/1/drive-viewer/AFDK6gM-IrT-k9d7GX-jeKs-p2zmIF59HDKQSrkOqOreksv1Rw7DABeYGrpD5YeIysKGNhZo3q-YVkn8G_BBxjSfhRM_pP59dA"
                   }
@@ -81,18 +78,17 @@ export default function Home({ informacion, fotos, barrios, videos }) {
             </div>
 
             <div className=" flex justify-center py-2 ">
-              {videos?.map((video, id) => (
-                <div key={id} className="py-5 w-3/4 grid ">
+              {videos?.map((video) => (
+                <div key={video.id} className="py-5 w-3/4 grid ">
                   <div className="text-center my-3 leading-relaxed font-bold text-xl	normal-case align-middle whitespace-pre-wrap tracking-tight  italic antialiased hover:subpixel-antialiased text-gray-900  dark:text-gray-400">
                     {video.descripcion_video}
                   </div>
                   <div className="aspect-w-16 aspect-h-9  ">
                     <iframe
                       src={video.url}
-                      loading
-                      frameborder="0"
+                      loading="1"
+                      allowFullScreen
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowfullscreen
                     ></iframe>
                   </div>
                 </div>
@@ -130,126 +126,4 @@ export const getServerSideProps = async (ctx) => {
       videos,
     },
   }
-}
-
-{
-  /*  const Datafotos = ({ size = 1 }) => (
-    <div>
-      {Array.from({ length: Math.ceil(foto.length / size) }, (_, id) => (
-        <div key={id} className="group-of-2">
-          <br />
-          {mana.map((info, id) => (
-            <div key={id}>
-              <div>{info.descripcion_parroquia}</div>
-            </div>
-          ))}
-          {foto.slice(id * size, (id + 1) * size).map((foto, id) => (
-            <div
-              className="flex justify-center mt-10 bg-fixed brightness-125 contrast-125 	 "
-              key={id}
-            >
-              <Image
-                className=""
-                src={foto.url}
-                height={500}
-                width={500}
-                alt="foto"
-              />
-            </div>
-          ))}
-        </div>
-      ))}
-    </div>
-  ) */
-}
-{
-  /* const Data = ({ size = 1 }) => (
-    <div>
-      {Array.from({ length: Math.ceil(data.length / size) }, (_, id) => (
-        <div key={id}>
-          <br />
-          {fotos?.map((foto, id) => (
-            <div key={id} className="flex justify-center mb-5">
-              <Image src={foto.url} alt="foto" width={500} height={500} />
-            </div>
-          ))}
-          <br />
-          {data.slice(id * size, (id + 1) * size).map((item, id) => (
-            <span
-              className="font-sans text-lg antialiased md:subpixel-antialiased italic	tracking-wide leading-loose text-justify text-gray-500 dark:text-gray-400 normal-case align-text-top whitespace-pre-line	"
-              key={id}
-            >
-              {item.descripcion_parroquia}
-            </span>
-          ))}
-        </div>
-      ))}
-    </div>
-  ) */
-}
-{
-  /*{mana.map((info, id) => (
-            <div key={id}>
-              <div className="whitespace">
-                {info.descripcion_parroquia ==="hola"}
-              </div>
-            </div>
-          ))} */
-}
-
-{
-  /*<div className="mb-10">
-            <span className="text-gray-500 dark:text-gray-400">
-              Según la investigadora Beatriz Mora, posiblemente el término LA
-              MANÁ viene del kichwa MANA que significa NO (negación) esto se
-              debe a que los indígenas tuvieron miedo de ir a estas tierras por
-              lo malsano que era el clima.
-            </span>
-          </div>
-          <div>
-            <span className="text-gray-500 dark:text-gray-400">
-              El origen de la palabra La Maná tiene varias teorías. Según una
-              versión proviene de los vocablos “LANG MANA ATTI” que significa
-              “Mina del Gran Rey” porque en La Maná existieron grandes
-              cantidades de oro.
-            </span>
-          </div>
-          <div id="img">
-            <Image
-              src={
-                "https://lh3.googleusercontent.com/u/0/drive-viewer/AFDK6gOzKvwKPd-_zTv8eUfqGkQ-KTjYy6GQ25siFSntNzkmO024WXFNjc6dmW1fqYBcQQHUzfIokoincHc8rJXJjlhN0g_-=w1920-h961"
-              }
-              alt="Foto Iglesia Pucayacu"
-              height={541}
-              width={541}
-              priority="low"
-            />
-          </div>
-          <div className="mb-10">
-            <span className="text-gray-500 dark:text-gray-400 ">
-              Según el vocablo Tsáchila MANA significa HERMOSO, GRANDE, BELLO al
-              referirse a la fertilidad y a la generosidad de su suelo. En el
-              diccionario filosófico maná significa poder de atracción que
-              tienen las personas, punto de atracción o punto magnético, debido
-              a la ubicación de La Maná en el centro del país. Según la Biblia
-              Maná simboliza comida, alimento, abundancia de productos, tierra
-              fértil regalada por Dios.
-            </span>
-          </div>
-
-          <div className="mb-10">
-            <span className="text-gray-500 dark:text-gray-400">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
-              tempora dolores quasi laudantium voluptatibus aliquid impedit qui
-              earum? Possimus sunt corporis animi laudantium sint nesciunt
-              tempore numquam, ut id distinctio! Pariatur, provident sunt
-              molestiae minus corporis vel at, dolores amet neque beatae dolorem
-              est placeat iste! At ipsum voluptatum necessitatibus! Optio harum
-              aut odio consequatur, fuga corporis perferendis eveniet iusto.
-              Ipsa officiis rerum iusto error. Itaque maxime esse dolorem illum
-              aliquam nostrum, dolores aspernatur quis quae obcaecati quaerat
-              eligendi corrupti aut eaque labore doloremque nisi. Natus magni
-              tempore veritatis eligendi?
-            </span>
-          </div> */
 }

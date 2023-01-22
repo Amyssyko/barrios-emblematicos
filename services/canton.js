@@ -41,7 +41,7 @@ export const data = [
   {
     nombre: "Eventos",
     direccion: "/eventos",
-    url: "https://lh3.googleusercontent.com/u/0/drive-viewer/AFDK6gPM_phgMAm7KrGDVKPO6nHuKcTzcSXhewd-9OGxoj1Hlv4QLWpcSavVFbUzJmwV5qkh0hCNg5I0flEFXM481lim2y8nGQ",
+    url: "https://lh3.googleusercontent.com/u/0/drive-viewer/AFDK6gPRflaPHj5mabEmhUhQmgAA9VptXEmXCFixqWFVrgmVM_-6j3XLrXTChA3O1EAnu8gt-887pNycKzUS8SpGaBQNyvKf",
   },
   {
     nombre: "Gastronomia",

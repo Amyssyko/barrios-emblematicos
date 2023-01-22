@@ -1,13 +1,10 @@
 import axios from "axios"
 import Image from "next/image"
 import Layout from "../components/Layout"
-
-import { Carousel } from "flowbite-react"
 import { Fotos } from "../components/Fotos"
+
 export default function Home({ informacion, fotos, barrios, videos }) {
   const auto = 500
-  const dinfo = informacion
-  const dfoto = fotos
   return (
     <div>
       <Layout title={"El Triunfo"}>
@@ -17,7 +14,7 @@ export default function Home({ informacion, fotos, barrios, videos }) {
           </h1>
 
           <div>
-            {informacion?.map((info, index) => (
+            {informacion?.map((info) => (
               <div key={info.id} className="flex justify-center ">
                 <div className="prose-xl">
                   <div className=" px-3 md:px-5 sm:px-3 lg:prose-xl my-3 leading-relaxed	normal-case align-middle whitespace-pre-wrap tracking-tight  italic antialiased hover:subpixel-antialiased text-gray-500  dark:text-gray-400 text-justify">
@@ -46,9 +43,9 @@ export default function Home({ informacion, fotos, barrios, videos }) {
           <div className="text-center my-3 leading-relaxed font-bold text-xl	normal-case align-middle whitespace-pre-wrap tracking-tight  italic antialiased hover:subpixel-antialiased text-gray-900  dark:text-gray-400">
             Barrios
           </div>
-          {barrios.map((barrio, id) => (
+          {barrios.map((barrio) => (
             <div
-              key={id}
+              key={barrio.id}
               className=" first-letter:prose lg:prose-xl list-disc list-inside px-3 py-5 leading-relaxed	normal-case align-middle whitespace-pre-wrap tracking-tight  italic antialiased hover:subpixel-antialiased text-gray-500  dark:text-gray-400 text-justify"
             >
               <div className="text-center pb-2">{barrio.nombre_barrio}</div>
@@ -69,7 +66,7 @@ export default function Home({ informacion, fotos, barrios, videos }) {
                 alt="Mapa Parroquia El Triunfo"
                 width={1080}
                 height={1920}
-                allowfullscreen
+                allowFullScreen
                 src={
                   "https://lh3.googleusercontent.com/u/1/drive-viewer/AFDK6gOcGKzUyD3tYid7QxbFYgKCmgQZwDl9S9m2lo7QMWVazvrsDntSF3IGDQ6pmva1pxpbkiTg_ATL-UtTEzZ_e-jxtFOU"
                 }
@@ -78,18 +75,17 @@ export default function Home({ informacion, fotos, barrios, videos }) {
           </div>
 
           <div className=" flex justify-center py-2 ">
-            {videos?.map((video, id) => (
-              <div key={id} className="py-5 w-3/4 grid ">
+            {videos?.map((video) => (
+              <div key={video.id} className="py-5 w-3/4 grid ">
                 <div className="text-center my-3 leading-relaxed font-bold text-xl	normal-case align-middle whitespace-pre-wrap tracking-tight  italic antialiased hover:subpixel-antialiased text-gray-900  dark:text-gray-400">
                   {video.descripcion_video}
                 </div>
                 <div className="aspect-w-16 aspect-h-9  ">
                   <iframe
                     src={video.url}
-                    loading
-                    frameborder="0"
+                    loading="1"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen
+                    allowFullScreen
                   ></iframe>
                 </div>
               </div>

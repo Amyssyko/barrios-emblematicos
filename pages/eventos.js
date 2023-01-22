@@ -5,14 +5,14 @@ import Layout from "../components/Layout"
 const Eventos = ({ actividades }) => {
   return (
     <Layout title={"Eventos"}>
-      <div className="w-full md:w-full lg:w-full bg-white">
+      <div className="w-auto  bg-white">
         <h1 className="font-sans font-extrabold text-lg antialiased md:subpixel-antialiased italic	tracking-wide leading-loose text-center text-gray-900 dark:text-gray-400 ">
           Eventos
         </h1>
 
         {actividades?.map((info, index) => (
           <div key={index}>
-            <div className="flex justify-center sm:my-10">
+            <div className="flex justify-center sm:my-10 sm:mx-3 md:mx-2 mx-2">
               <div className="prose lg:prose-xl my-2 py-2 sm:py-1">
                 <div className=" sm:py-5 text-center leading-relaxed font-semibold text-xl	normal-case align-middle whitespace-pre-wrap tracking-tight  italic antialiased hover:subpixel-antialiased text-gray-900  dark:text-gray-400">
                   {info?.nombre_actividad}
@@ -44,12 +44,10 @@ const Eventos = ({ actividades }) => {
         <div className=" grid w-full py-2 ">
           <div className="aspect-w-12 w-1/2 aspect-h-4  grid justify-items-center justify-self-center">
             <iframe
-              className="	"
               src="https://drive.google.com/file/d/1dlIUtJxPE6aSy4QqL_reBXIQVyTcfVBT/preview"
-              loading
-              frameborder="0"
+              loading="1"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
+              allowFullScreen
             ></iframe>
           </div>
         </div>

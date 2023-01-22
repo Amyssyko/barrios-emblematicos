@@ -4,24 +4,23 @@ import logo from "../images/logo.jpg"
 
 import { useState } from "react"
 
+const navigation = [
+  { nombre: "Inicio", url: "/" },
+  { nombre: "La Mana", url: "/mana" },
+  { nombre: "El Triunfo", url: "/triunfo" },
+  { nombre: "El Carmen", url: "/carmen" },
+  { nombre: "Guasaganda", url: "/guasaganda" },
+  { nombre: "Pucayacu", url: "/pucayacu" },
+]
 export function Navbar() {
   const [state, setState] = useState(false)
 
-  const navigation = [
-    { nombre: "Inicio", url: "/" },
-    { nombre: "La Mana", url: "/mana" },
-    { nombre: "El Triunfo", url: "/triunfo" },
-    { nombre: "El Carmen", url: "/carmen" },
-    { nombre: "Guasaganda", url: "/guasaganda" },
-    { nombre: "Pucayacu", url: "/pucayacu" },
-  ]
-
   return (
     <nav className="bg-white w-full border-b md:border-0 md:static bg-[conic-gradient(at_right,_var(--tw-gradient-stops))] from-teal-200 to-lime-200 ">
-      <div className="items-center item px-4 max-w-screen-xl mx-auto md:flex md:px-8">
+      <div className="items-center item px-4 max-w-screen-xl mx-auto md:flex md:px-1">
         <div className="flex items-center justify-between py-3 md:py-5 md:block">
           <Link legacyBehavior href="/">
-            <a className="inline-flex items-center p-2 mr-4 ">
+            <a className="inline-flex items-center place-items-start  p-2 mr-4 ">
               <Image
                 className="rounded-full "
                 src={logo}
@@ -35,7 +34,7 @@ export function Navbar() {
           </Link>
           <div className="md:hidden">
             <button
-              className="text-gray-700 outline-none p-2 rounded-md focus:border-gray-400 focus:border"
+              className="text-gray-700 outline-none p-2 mb-8 rounded-md focus:border-gray-400 focus:border"
               onClick={() => setState(!state)}
             >
               {state ? (
@@ -75,19 +74,15 @@ export function Navbar() {
             state ? "block" : "hidden"
           }`}
         >
-          <ul className=" justify-end items-center space-y-8 md:flex md:space-x-6 md:space-y-0">
-            {navigation.map((item, idx) => {
+          <ul className=" justify-end items-center space-y-8 md:flex md:space-x-1 md:space-y-0">
+            {navigation.map((item) => {
               return (
-                <li
-                  key={item.id}
-                  className="text-gray-600 hover:text-indigo-400"
-                >
-                  <a
-                    className="lg:inline-flex lg:w-auto w-full px-3 py-1 rounded text-black  font-bold items-center justify-center"
-                    href={item.url}
-                  >
-                    {item.nombre}
-                  </a>
+                <li key={item.id} className="text-gray-600 hover:bg-zinc-100  ">
+                  <Link href={item.url} legacyBehavior>
+                    <a className="hover:text-indigo-800 lg:inline-flex  lg:w-auto w-full px-3 py-1 rounded text-black  font-bold items-center justify-center">
+                      {item.nombre}
+                    </a>
+                  </Link>
                 </li>
               )
             })}

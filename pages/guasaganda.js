@@ -41,9 +41,9 @@ export default function Home({ informacion, fotos, recintos, videos }) {
           <div className="text-center my-3 leading-relaxed font-bold text-xl	normal-case align-middle whitespace-pre-wrap tracking-tight  italic antialiased hover:subpixel-antialiased text-gray-900  dark:text-gray-400">
             Recintos
           </div>
-          {recintos?.map((recinto, id) => (
+          {recintos?.map((recinto) => (
             <div
-              key={id}
+              key={recinto.id}
               className=" first-letter:prose lg:prose-xl list-disc list-inside px-20 py-1 my-3 leading-relaxed	normal-case align-middle whitespace-pre-wrap tracking-tight  italic antialiased hover:subpixel-antialiased text-gray-500  dark:text-gray-400 text-justify"
             >
               <div className="text-center pb-0  pt-0">
@@ -63,7 +63,7 @@ export default function Home({ informacion, fotos, recintos, videos }) {
                 alt="Mapa Parroquia Pucayacu"
                 width={1080}
                 height={1920}
-                allowfullscreen
+                allowFullScreen
                 src={
                   "https://lh3.googleusercontent.com/u/1/drive-viewer/AFDK6gMkdbRTiX5sUmI9GDdqFEVzojhzgRVYJir8U_ltST6Ton8ACW-tO7m_MzZ-kyCqswT3rSU7wKFDebAoiV4Ot3lK5FFvww"
                 }
@@ -72,18 +72,17 @@ export default function Home({ informacion, fotos, recintos, videos }) {
           </div>
 
           <div className=" flex justify-center py-2 ">
-            {videos?.map((video, id) => (
-              <div key={id} className="py-5 w-3/4 grid ">
+            {videos?.map((video) => (
+              <div key={video.id} className="py-5 w-3/4 grid ">
                 <div className="text-center my-3 leading-relaxed font-bold text-xl	normal-case align-middle whitespace-pre-wrap tracking-tight  italic antialiased hover:subpixel-antialiased text-gray-900  dark:text-gray-400">
                   {video.descripcion_video}
                 </div>
                 <div className="aspect-w-16 aspect-h-9  ">
                   <iframe
                     src={video.url}
-                    loading
-                    frameborder="0"
+                    loading="1"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen
+                    allowFullScreen
                   ></iframe>
                 </div>
               </div>

@@ -2,10 +2,10 @@ import Link from "next/link"
 
 export const Footer = () => {
   return (
-    <footer className="relative py-10 flex flex-row items-center  bg-cyan-600 overflow-hidden md:py-5">
+    <footer className="w-screen sm:w-auto md:w-auto lg:w-auto xl:w-auto 2xl:w-auto relative py-10 flex flex-row items-center  bg-cyan-600 overflow-hidden md:py-5">
       <div className="relative z-[1] container m-auto px-6 md:px-12 ">
-        <div className="m-auto md:w-10/12 lg:w-8/12 xl:w-6/12">
-          <div className="w-screen space-x-12 flex justify-center text-gray-300 sm:w-7/12 md:justify-start">
+        <div className=" m-auto md:w-10/12 lg:w-8/12 xl:w-6/12">
+          <div className=" space-x-12 flex justify-items-stretch text-gray-300 sm:w-7/12 md:justify-start">
             <div>
               <Link href="#" legacyBehavior>
                 <a className="flex items-center space-x-3 hover:text-sky-400 transition">

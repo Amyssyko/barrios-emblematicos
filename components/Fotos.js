@@ -9,7 +9,7 @@ export function Fotos({ fotos }, titulo) {
       </div>
       <Carousel slideInterval={5000}>
         {fotos.map((foto) => (
-          <div className="flex justify-center mt-5 " key={foto.id}>
+          <div key={foto.id} className="flex justify-center mt-5 ">
             <Image
               className="brightness-125 contrast-125 "
               alt="Imagen de la parroquia"

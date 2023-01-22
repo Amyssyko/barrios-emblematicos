@@ -34,6 +34,7 @@ export default function Home({ informacion, fotos, barrios }) {
                     height={auto}
                     width={auto}
                     src={foto.url}
+                    allowFullScreen
                   />
                 </div>
               ))}
@@ -86,7 +87,7 @@ export default function Home({ informacion, fotos, barrios }) {
                   alt="Mapa Parroquia El Carmen"
                   width={1080}
                   height={1920}
-                  allowfullscreen
+                  allowFullScreen
                   src={
                     "https://lh3.googleusercontent.com/u/1/drive-viewer/AFDK6gPPJQqgScrvD8FuxeEeLjwHKHgEiqs9_DcZPceiH3N8J3XZKF2Z16lho6pCekfCiHVE_lQsMEiAP8azrBahuzhgCY5j"
                   }
