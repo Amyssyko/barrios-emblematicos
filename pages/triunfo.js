@@ -60,7 +60,7 @@ export default function Home({ informacion, fotos, barrios, videos }) {
           </div>
 
           <div className=" flex justify-center sm:justify-center py-2">
-            <div className="w-3/4 sm:w-1/2 flex sm:justify-center">
+            <div className="w-3/4 sm:w-1/2 md:w-full lg:w-1/2 xl:w-1/2 flex sm:justify-center">
               <Image
                 className=" ring-sky-800  ring-8 shadow w-full sm:w-1/2 md:w-1/2 lg:w-3/4 xl:w-full  ring-offset-4 rounded-full"
                 alt="Mapa Parroquia El Triunfo"

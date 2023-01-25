@@ -2,7 +2,7 @@ import Image from "next/image"
 import { Carousel } from "flowbite-react"
 import Link from "next/link"
 import Layout from "../components/Layout"
-import { canton, data, menu } from "./../services/canton"
+import { canton, data } from "./../services/canton"
 
 export default function Home() {
   return (
@@ -55,12 +55,13 @@ export default function Home() {
             </Carousel>
           </div>
         </div>
-        <h1
+
+        <div
           id="historia"
-          className="py-10 md:mt-20 font-sans font-extrabold text-lg antialiased md:subpixel-antialiased italic	tracking-wide leading-loose text-center text-gray-900 dark:text-gray-400 "
+          className="py-10 mt-24 sm:mt-24 lg:mt-24 xl:mt-24 md:mt-24 font-sans font-extrabold text-lg antialiased md:subpixel-antialiased italic	tracking-wide leading-loose text-center text-gray-900 dark:text-gray-400 "
         >
           Historia del Cantón La Mana
-        </h1>
+        </div>
         {canton?.map((info) => (
           <div key={info.id} className="flex justify-center ">
             <div className="prose-xl">

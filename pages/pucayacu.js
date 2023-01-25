@@ -1,6 +1,7 @@
 import axios from "axios"
 import Image from "next/image"
 import Layout from "../components/Layout"
+import { Fotos } from "../components/Fotos"
 
 export default function Pucayacu({ informacion, fotos, recintos, videos }) {
   const auto = 500
@@ -24,18 +25,8 @@ export default function Pucayacu({ informacion, fotos, recintos, videos }) {
               </div>
             ))}
           </div>
-          <div>
-            {fotos?.map((foto) => (
-              <div className="flex justify-center mt-5" key={foto.id}>
-                <Image
-                  alt="Imagen de la parroquia"
-                  height={auto}
-                  width={auto}
-                  src={foto.url}
-                />
-              </div>
-            ))}
-          </div>
+
+          {Fotos({ fotos }, "Guasaganda")}
 
           <ul className="list-disc list-inside px-2 md:px-12 lg:px-24 py-5 font-sans text-lg antialiased hover:subpixel-antialiased text-gray-500  dark:text-gray-400">
             <div className="text-center my-3 leading-relaxed font-bold text-xl	normal-case align-middle whitespace-pre-wrap tracking-tight  italic antialiased hover:subpixel-antialiased text-gray-900  dark:text-gray-400">
@@ -67,7 +58,7 @@ export default function Pucayacu({ informacion, fotos, recintos, videos }) {
             Mapa Pucayacu
           </div>
           <div className=" flex justify-center sm:justify-center py-2">
-            <div className="w-3/4 sm:w-1/2 flex sm:justify-center">
+            <div className="w-3/4 sm:w-1/2 md:w-full lg:w-1/2 xl:w-1/2 flex sm:justify-center">
               <Image
                 className=" ring-sky-800  ring-8 shadow w-full sm:w-1/2 md:w-1/2 lg:w-3/4 xl:w-full  ring-offset-4 rounded-full"
                 alt="Mapa Parroquia Pucayacu"

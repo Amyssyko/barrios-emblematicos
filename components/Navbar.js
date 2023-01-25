@@ -28,7 +28,7 @@ export function Navbar() {
                 alt="Logo"
               />
               <div className="pl-5 text-xl dark:text-white hover:text-slate-100 shadow-sm font-bold font-sans uppercase tracking-wide">
-                Barrios Emblematicos
+                La Maná
               </div>
             </a>
           </Link>
