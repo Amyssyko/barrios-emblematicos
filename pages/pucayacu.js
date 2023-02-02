@@ -3,7 +3,13 @@ import Image from "next/image"
 import Layout from "../components/Layout"
 import { Fotos } from "../components/Fotos"
 
-export default function Pucayacu({ informacion, fotos, recintos, videos }) {
+export default function Pucayacu({
+  parroquia,
+  informacion,
+  fotos,
+  recintos,
+  videos,
+}) {
   const auto = 500
   return (
     <div>
@@ -42,16 +48,23 @@ export default function Pucayacu({ informacion, fotos, recintos, videos }) {
           </ul>
 
           <div className="text-center my-3 leading-relaxed font-bold text-xl	normal-case align-middle whitespace-pre-wrap tracking-tight  italic antialiased hover:subpixel-antialiased text-gray-900  dark:text-gray-400">
+            Centros Educativos de la Parroquia {parroquia.nombre_parroquia}
+          </div>
+          <div className=" lg:prose-xl list-disc list-inside px-3 py-5 leading-relaxed	normal-case align-middle whitespace-pre-wrap tracking-tight  italic antialiased hover:subpixel-antialiased text-gray-500  dark:text-gray-400 text-center">
+            {parroquia.unidad_educativa}
+          </div>
+
+          <div className="text-center my-3 leading-relaxed font-bold text-xl	normal-case align-middle whitespace-pre-wrap tracking-tight  italic antialiased hover:subpixel-antialiased text-gray-900  dark:text-gray-400">
             Recintos
           </div>
           {recintos?.map((recinto) => (
-            <ul
+            <div
               key={recinto.id}
               className="  first-letter:prose lg:prose-xl list-disc list-inside px-3 py-1 my-3 leading-relaxed	normal-case align-middle whitespace-pre-wrap tracking-tight  italic antialiased hover:subpixel-antialiased text-gray-500  dark:text-gray-400 text-justify"
             >
-              <li className="text-center ">{recinto.nombre_recinto}</li>
+              <div className="text-center ">{recinto.nombre_recinto}</div>
               <div>{recinto.descripcion_recinto}</div>
-            </ul>
+            </div>
           ))}
 
           <div className="text-center my-3 leading-relaxed font-bold text-xl	normal-case align-middle whitespace-pre-wrap tracking-tight  italic antialiased hover:subpixel-antialiased text-gray-900  dark:text-gray-400">
@@ -96,6 +109,9 @@ export default function Pucayacu({ informacion, fotos, recintos, videos }) {
 }
 
 export const getServerSideProps = async (ctx) => {
+  const { data: parroquia } = await axios.get(
+    "http://localhost:3000/api/parroquia/P005"
+  )
   const { data: videos } = await axios.get(
     "http://localhost:3000/api/media/video/P005"
   )
@@ -112,6 +128,7 @@ export const getServerSideProps = async (ctx) => {
 
   return {
     props: {
+      parroquia,
       informacion,
       fotos,
       recintos,

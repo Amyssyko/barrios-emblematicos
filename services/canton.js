@@ -52,7 +52,7 @@ export const data = [
 
 export const menu = [
   { id: 1, nombre: "Historia" },
-  { id: 1, nombre: "Límites" },
-  { id: 1, nombre: "División Política" },
-  { id: 1, nombre: "Producción" },
+  { id: 2, nombre: "Límites" },
+  { id: 3, nombre: "División Política" },
+  { id: 4, nombre: "Producción" },
 ]

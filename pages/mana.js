@@ -5,7 +5,13 @@ import Layout from "../components/Layout"
 
 //import styles from "../styles/Home.module.css"
 
-export default function Mana({ informacion, fotos, barrios, videos }) {
+export default function Mana({
+  parroquia,
+  informacion,
+  fotos,
+  barrios,
+  videos,
+}) {
   const auto = 500
   return (
     <div>
@@ -28,7 +34,7 @@ export default function Mana({ informacion, fotos, barrios, videos }) {
               ))}
             </div>
 
-            {Fotos({ fotos }, "El Triunfo")}
+            {Fotos({ fotos }, "La Maná")}
 
             <ul className="list-disc list-inside px-2 md:px-12 lg:px-24 py-5 font-sans text-lg antialiased hover:subpixel-antialiased text-gray-500  dark:text-gray-400">
               <div className="text-center my-3 leading-relaxed font-bold text-xl	normal-case align-middle whitespace-pre-wrap tracking-tight  italic antialiased hover:subpixel-antialiased text-gray-900  dark:text-gray-400">
@@ -43,12 +49,19 @@ export default function Mana({ informacion, fotos, barrios, videos }) {
             </ul>
 
             <div className="text-center my-3 leading-relaxed font-bold text-xl	normal-case align-middle whitespace-pre-wrap tracking-tight  italic antialiased hover:subpixel-antialiased text-gray-900  dark:text-gray-400">
+              Centros Educativos de la Parroquia {parroquia.nombre_parroquia}
+            </div>
+            <div className=" lg:prose-xl list-disc list-inside px-3 py-5 leading-relaxed	normal-case align-middle whitespace-pre-wrap tracking-tight  italic antialiased hover:subpixel-antialiased text-gray-500  dark:text-gray-400 text-center">
+              {parroquia.unidad_educativa}
+            </div>
+
+            <div className="text-center my-3 leading-relaxed font-bold text-xl	normal-case align-middle whitespace-pre-wrap tracking-tight  italic antialiased hover:subpixel-antialiased text-gray-900  dark:text-gray-400">
               Barrios
             </div>
             {barrios.map((barrio) => (
               <div
                 key={barrio.id}
-                className=" first-letter:prose lg:prose-xl list-disc list-inside px-3 py-5 leading-relaxed	normal-case align-middle whitespace-pre-wrap tracking-tight  italic antialiased hover:subpixel-antialiased text-gray-500  dark:text-gray-400 text-justify"
+                className=" lg:prose-xl list-disc list-inside px-3 py-5 leading-relaxed	normal-case align-middle whitespace-pre-wrap tracking-tight  italic antialiased hover:subpixel-antialiased text-gray-500  dark:text-gray-400 text-justify"
               >
                 <div className=" text-center  pb-2 ">
                   {barrio.nombre_barrio}:{" "}
@@ -102,6 +115,10 @@ export default function Mana({ informacion, fotos, barrios, videos }) {
 }
 
 export const getServerSideProps = async (ctx) => {
+  const { data: parroquia } = await axios.get(
+    "http://localhost:3000/api/parroquia/P001"
+  )
+
   const { data: videos } = await axios.get(
     "http://localhost:3000/api/media/video/P001"
   )
@@ -124,6 +141,7 @@ export const getServerSideProps = async (ctx) => {
       fotos,
       barrios,
       videos,
+      parroquia,
     },
   }
 }

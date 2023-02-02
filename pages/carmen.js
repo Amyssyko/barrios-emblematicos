@@ -1,7 +1,15 @@
 import axios from "axios"
 import Image from "next/image"
+import { Fotos } from "../components/Fotos"
 import Layout from "../components/Layout"
-export default function Home({ informacion, fotos, barrios, videos }) {
+
+export default function Home({
+  parroquia,
+  informacion,
+  fotos,
+  barrios,
+  videos,
+}) {
   const auto = 500
   const dinfo = informacion
   const dfoto = fotos
@@ -25,19 +33,8 @@ export default function Home({ informacion, fotos, barrios, videos }) {
               </div>
             ))}
           </div>
-          <div>
-            {dfoto?.map((foto, index) => (
-              <div className="flex justify-center mt-5" key={index}>
-                <Image
-                  alt="Imagen de la parroquia"
-                  height={auto}
-                  width={auto}
-                  src={foto.url}
-                  allowFullScreen
-                />
-              </div>
-            ))}
-          </div>
+
+          {Fotos({ fotos }, "El Carmen")}
 
           <ul className="list-disc list-inside px-2 md:px-12 lg:px-24 py-5 font-sans text-lg antialiased hover:subpixel-antialiased text-gray-500  dark:text-gray-400">
             <div className="text-center my-3 leading-relaxed font-bold text-xl	normal-case align-middle whitespace-pre-wrap tracking-tight  italic antialiased hover:subpixel-antialiased text-gray-900  dark:text-gray-400">
@@ -50,6 +47,13 @@ export default function Home({ informacion, fotos, barrios, videos }) {
               <li>Oeste: Cantón Valencia.</li>
             </div>
           </ul>
+
+          <div className="text-center my-3 leading-relaxed font-bold text-xl	normal-case align-middle whitespace-pre-wrap tracking-tight  italic antialiased hover:subpixel-antialiased text-gray-900  dark:text-gray-400">
+            Centros Educativos de la Parroquia {parroquia.nombre_parroquia}
+          </div>
+          <div className=" lg:prose-xl list-disc list-inside px-3 py-5 leading-relaxed	normal-case align-middle whitespace-pre-wrap tracking-tight  italic antialiased hover:subpixel-antialiased text-gray-500  dark:text-gray-400 text-center">
+            {parroquia.unidad_educativa}
+          </div>
 
           <div className="text-center my-3 leading-relaxed font-bold text-xl	normal-case align-middle whitespace-pre-wrap tracking-tight  italic antialiased hover:subpixel-antialiased text-gray-900  dark:text-gray-400">
             Barrios
@@ -118,6 +122,9 @@ export default function Home({ informacion, fotos, barrios, videos }) {
 }
 
 export const getServerSideProps = async (ctx) => {
+  const { data: parroquia } = await axios.get(
+    "http://localhost:3000/api/parroquia/P003"
+  )
   const { data: videos } = await axios.get(
     "http://localhost:3000/api/media/video/P003"
   )
@@ -133,11 +140,6 @@ export const getServerSideProps = async (ctx) => {
   )
 
   return {
-    props: {
-      informacion,
-      fotos,
-      barrios,
-      videos,
-    },
+    props: { parroquia, informacion, fotos, barrios, videos },
   }
 }

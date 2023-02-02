@@ -3,7 +3,13 @@ import Image from "next/image"
 import Layout from "../components/Layout"
 import { Fotos } from "../components/Fotos"
 
-export default function Home({ informacion, fotos, barrios, videos }) {
+export default function Home({
+  parroquia,
+  informacion,
+  fotos,
+  barrios,
+  videos,
+}) {
   const auto = 500
   return (
     <div>
@@ -39,6 +45,13 @@ export default function Home({ informacion, fotos, barrios, videos }) {
               <li>Este: Sargento Villacis</li>
             </div>
           </ul>
+
+          <div className="text-center my-3 leading-relaxed font-bold text-xl	normal-case align-middle whitespace-pre-wrap tracking-tight  italic antialiased hover:subpixel-antialiased text-gray-900  dark:text-gray-400">
+            Centros Educativos de la Parroquia {parroquia.nombre_parroquia}
+          </div>
+          <div className=" lg:prose-xl list-disc list-inside px-3 py-5 leading-relaxed	normal-case align-middle whitespace-pre-wrap tracking-tight  italic antialiased hover:subpixel-antialiased text-gray-500  dark:text-gray-400 text-center">
+            {parroquia.unidad_educativa}
+          </div>
 
           <div className="text-center my-3 leading-relaxed font-bold text-xl	normal-case align-middle whitespace-pre-wrap tracking-tight  italic antialiased hover:subpixel-antialiased text-gray-900  dark:text-gray-400">
             Barrios
@@ -98,6 +111,10 @@ export default function Home({ informacion, fotos, barrios, videos }) {
 }
 
 export const getServerSideProps = async (ctx) => {
+  const { data: parroquia } = await axios.get(
+    "http://localhost:3000/api/parroquia/P002"
+  )
+
   const { data: videos } = await axios.get(
     "http://localhost:3000/api/media/video/P002"
   )
@@ -116,6 +133,7 @@ export const getServerSideProps = async (ctx) => {
 
   return {
     props: {
+      parroquia,
       informacion,
       fotos,
       barrios,

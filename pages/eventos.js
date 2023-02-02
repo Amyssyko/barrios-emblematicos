@@ -11,10 +11,13 @@ const Eventos = ({ actividades }) => {
         </h1>
 
         {actividades?.map((info, index) => (
-          <div key={index}>
-            <div className="flex justify-center sm:my-10 sm:mx-3 md:mx-2 mx-2">
-              <div className="prose lg:prose-xl my-2 py-2 sm:py-1">
-                <div className=" sm:py-5 text-center leading-relaxed font-semibold text-xl	normal-case align-middle whitespace-pre-wrap tracking-tight  italic antialiased hover:subpixel-antialiased text-gray-900  dark:text-gray-400">
+          <div
+            key={index}
+            className="px-3 md:px-5 sm:px-3 lg:px-7 lx:px-7 2xl:px-8 pb-2 sm:pb-2 md:pb-2 lg:pb-2 lx:pb-2"
+          >
+            <div className="flex justify-center  sm:mx-3 md:mx-2 mx-2">
+              <div className="prose lg:prose-xl py-2">
+                <div className=" text-center leading-relaxed font-semibold text-xl	normal-case align-middle whitespace-pre-wrap tracking-tight  italic antialiased hover:subpixel-antialiased text-gray-900  dark:text-gray-400">
                   {info?.nombre_actividad}
                 </div>
                 <div className=" leading-relaxed	normal-case align-middle whitespace-pre-wrap tracking-tight  italic antialiased hover:subpixel-antialiased text-gray-500  dark:text-gray-400 text-justify">
@@ -22,34 +25,34 @@ const Eventos = ({ actividades }) => {
                 </div>
               </div>
             </div>
-
-            <div className="grid w-full h-56 sm:h-96  xl:h-80 2xl:h-96 mx-2 ">
-              {info.url_actividad ? (
-                <div className=" px-2  grid justify-items-center justify-self-center ">
-                  <Image
-                    className="ring-sky-600  pb-2 ring-2 shadow w-1/2 sm:w-1/2 md:w-1/2 lg:w-3/4 xl:w-1/2 ring-offset-2 rounded-2xl	"
-                    alt={info?.nombre_actividad}
-                    src={info.url_actividad}
-                    width="1000"
-                    height="1000"
-                  />
-                </div>
-              ) : (
-                ""
-              )}
+            <div className="pb-3 sm:pb-3 md:pb-3 lg:pb-3 2xl:mb-3 lg:mb-2 sm:mb-2 2xl:pb-2 ">
+              <div className="grid w-auto h-96 sm:h-96 md:h-96 xl:h-96 2xl:h-96  ">
+                {info.url_actividad ? (
+                  <div className="grid justify-items-center justify-self-center ">
+                    <Image
+                      className="ring-sky-600  pb-0 ring-2 shadow  sm:w-3/4 md:w-3/4 lg:w-3/4 xl:w-3/4 ring-offset-2 rounded-md	"
+                      alt={info?.nombre_actividad}
+                      src={info.url_actividad}
+                      width="1000"
+                      height="1000"
+                    />
+                  </div>
+                ) : (
+                  ""
+                )}
+              </div>
             </div>
           </div>
         ))}
-
-        <div className=" grid w-full py-2 ">
-          <div className="aspect-w-12 w-1/2 aspect-h-4  grid justify-items-center justify-self-center">
-            <iframe
-              src="https://drive.google.com/file/d/1dlIUtJxPE6aSy4QqL_reBXIQVyTcfVBT/preview"
-              loading="1"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
-          </div>
+      </div>
+      <div className=" grid w-full py-3 sm:py-12 md:py-12 lg:py-12 xl:py-3 2xl:py-3 px-1 sm:px-10 md:px-12 lg:px-20 xl:px-24 2xl:px-52 ">
+        <div className="aspect-w-16 w-full aspect-h-9  grid justify-items-center justify-self-center">
+          <iframe
+            src="https://drive.google.com/file/d/1dlIUtJxPE6aSy4QqL_reBXIQVyTcfVBT/preview"
+            loading="1"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
         </div>
       </div>
     </Layout>

@@ -16,7 +16,7 @@ export function Navbar() {
   const [state, setState] = useState(false)
 
   return (
-    <nav className="bg-white w-full border-b md:border-0 md:static bg-[conic-gradient(at_right,_var(--tw-gradient-stops))] from-teal-200 to-lime-200 ">
+    <nav className="bg-white w-full lg:w-full 2xl:w-full border-b md:border-0 md:static bg-[conic-gradient(at_right,_var(--tw-gradient-stops))] from-teal-200 to-lime-200 ">
       <div className="items-center item px-4 max-w-screen-xl mx-auto md:flex md:px-1">
         <div className="flex items-center justify-between py-3 md:py-5 md:block">
           <Link legacyBehavior href="/">
@@ -74,19 +74,22 @@ export function Navbar() {
             state ? "block" : "hidden"
           }`}
         >
-          <ul className=" justify-end items-center space-y-8 md:flex md:space-x-1 md:space-y-0">
+          <div className=" justify-end items-center space-y-8 md:flex md:space-x-1 md:space-y-0">
             {navigation.map((item) => {
               return (
-                <li key={item.id} className="text-gray-600 hover:bg-zinc-100  ">
+                <div
+                  key={item.id}
+                  className="text-gray-600 hover:bg-zinc-100  "
+                >
                   <Link href={item.url} legacyBehavior>
                     <a className="hover:text-indigo-800 lg:inline-flex  lg:w-auto w-full px-3 py-1 rounded text-black  font-bold items-center justify-center">
                       {item.nombre}
                     </a>
                   </Link>
-                </li>
+                </div>
               )
             })}
-          </ul>
+          </div>
         </div>
       </div>
     </nav>
